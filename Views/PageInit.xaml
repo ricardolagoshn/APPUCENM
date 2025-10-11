@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="APPUCENM.Views.PageInit"
+             Title="PageInit">
+    <VerticalStackLayout>
+
+        <Entry x:Name="nombres" 
+          Placeholder="Nombres del Empleado" 
+          Keyboard="Text"
+          TextColor="Navy"
+          PlaceholderColor="BlueViolet"
+          HeightRequest="50"
+          />
+
+        <Entry x:Name="apellidos" 
+          Placeholder="Apellidos del Empleado" 
+          Keyboard="Text"
+          TextColor="Navy"
+          PlaceholderColor="BlueViolet"
+          HeightRequest="50"
+          />
+
+        <DatePicker x:Name="fechanac"
+              Format="d"
+              Background="White"
+              TextColor="Navy"
+              />
+
+        <Entry x:Name="telefono" 
+          Placeholder="Telefono del Empleado" 
+          Keyboard="Telephone"
+          TextColor="Navy"
+          PlaceholderColor="BlueViolet"
+          HeightRequest="50"
+          />
+
+            <Entry x:Name="correo" 
+           Placeholder="Correo del Empleado" 
+           Keyboard="Email"
+           TextColor="Navy"
+           PlaceholderColor="BlueViolet"
+           HeightRequest="50"
+           />   
+
+        <Button x:Name="btnprocesar" 
+           Text="Agregar Empleado"
+           Clicked="btnprocesar_Clicked"
+           CornerRadius="12"
+           HeightRequest="50"
+           FontAttributes="Bold"
+           />
+    </VerticalStackLayout>
+</ContentPage>

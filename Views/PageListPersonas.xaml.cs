@@ -1,3 +1,5 @@
+using System.Threading.Tasks;
+
 namespace APPUCENM.Views;
 
 public partial class PageListPersonas : ContentPage
@@ -7,9 +9,9 @@ public partial class PageListPersonas : ContentPage
 		InitializeComponent();
 	}
 
-    private void ToolbarItem_Clicked(object sender, EventArgs e)
+    private async void ToolbarItem_Clicked(object sender, EventArgs e)
     {
-
+        await Navigation.PushAsync(new Views.PageInit());
     }
 
     private void ToolbarItem_Clicked_1(object sender, EventArgs e)
@@ -25,5 +27,11 @@ public partial class PageListPersonas : ContentPage
     private void listapersonas_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
 
+    }
+
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        listapersonas.ItemsSource = await App.Database.GetListaPersonas();
     }
 }

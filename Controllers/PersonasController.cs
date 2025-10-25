@@ -41,16 +41,20 @@ namespace APPUCENM.Controllers
             }
         }
 
+
+        // GET
         public async Task<List<Models.Personas>> GetListaPersonas() 
         {
             return await _connection.Table<Models.Personas>().ToListAsync();
         }
 
+        //GET
         public async Task<Models.Personas> GetPersona(int pid)
         {
             return await _connection.Table<Models.Personas>().Where(i => i.Id == pid).FirstOrDefaultAsync();
         }
 
+        //DELETE
         public async Task<int> EliminarPersona(Models.Personas personas)
         {
             return await _connection.DeleteAsync(personas);

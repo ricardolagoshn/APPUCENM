@@ -5,6 +5,12 @@
              Title="PageInit">
     <VerticalStackLayout>
 
+        <Image x:Name="foto" WidthRequest="200" HeightRequest="200" BackgroundColor="BlueViolet"/>
+        <Button x:Name="btnfoto" Text="Tomar Foto" Clicked="btnfoto_Clicked"
+                Margin="50,20,50,20"    
+                BackgroundColor="AliceBlue" />
+        
+
         <Entry x:Name="nombres" 
           Placeholder="Nombres del Empleado" 
           Keyboard="Text"

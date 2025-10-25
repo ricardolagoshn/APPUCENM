@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:config="clr-namespace:APPUCENM.Config"
              x:Class="APPUCENM.Views.PageListPersonas"
              Title="PageListPersonas">
 
@@ -9,6 +10,12 @@
         <ToolbarItem Text="Modificar" Clicked="ToolbarItem_Clicked_1" />
         <ToolbarItem Text="Mapa" Clicked="ToolbarItem_Clicked_2" />
     </ContentPage.ToolbarItems>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <config:Base64ToImage x:Key="Base64ToImageConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <ContentPage.Content>
         <CollectionView x:Name="listapersonas"
@@ -24,6 +31,14 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout>
+                        <Image Source="{Binding Foto,Converter={StaticResource Base64ToImageConverter}}"
+                               WidthRequest="80"
+                               HeightRequest="80"
+                               Aspect="AspectFill"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"
+                               Margin="5" />
+                        
                         <Label Text="{Binding Nombres}" />
                         <Label Text="{Binding Apellidos}" />
                         <Label Text="{Binding Telefono}" />

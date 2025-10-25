@@ -29,8 +29,29 @@ public partial class PageInit : ContentPage
         return null;
     }
 
-    private void btnprocesar_Clicked(object sender, EventArgs e)
+    private async void btnprocesar_Clicked(object sender, EventArgs e)
     {
+        var persona = new Models.Personas
+        {
+            Nombres = nombres.Text,
+            Apellidos = apellidos.Text,
+            FechaNac = fechanac.Date,
+            Telefono= telefono.Text,
+            Correo = correo.Text,
+            Foto = await ImageBase64()
+        };
+
+        if (await App.Database.GuardarPersona(persona) > 0)
+        {
+            await DisplayAlert("Aviso", "Persona Ingresada con exito", "OK");
+        }
+        else
+        {
+            await DisplayAlert("Aviso", "Datos no Registrados", "OK");
+        }
+
+        var pagina = new Views.PageListPersonas();
+        await Navigation.PushAsync(pagina);
 
     }
 

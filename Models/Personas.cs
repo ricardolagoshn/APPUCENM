@@ -26,5 +26,7 @@ namespace APPUCENM.Models
 
         [Unique]
         public string Correo { get; set; }
+
+        public string Foto { get; set; }
     }
 }
